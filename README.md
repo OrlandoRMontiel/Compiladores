@@ -2,4 +2,6 @@
 
 Notación en prefijo.
 
-Asiganción de variables para su futura implementación como listas.
+Asiganción de variables.
+
+Base para la implementación de asignación de listas.
