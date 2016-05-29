@@ -133,6 +133,10 @@
               maquina.agregarOperacion("negar");
               $$ = $2;
             }
+	| '|' exp '|' {
+              maquina.agregarOperacion("norma");
+              $$ = $2;
+            }
     | FNCT '[' exp ']' {
               $$ = new ParserVal($3.ival);
               maquina.agregar((Funcion)($1.obj));

@@ -2,24 +2,26 @@
 var1 [ 3 ] = { 1 , 2 , 3 } ; var2 [ 3 ] = { 4 , 5 , 6 } ; 
 i [ 3 ] = { 1 , 0 , 0 } ; j [ 3 ] = { 0 , 1 , 0 } ; k [ 3 ] = { 0 , 0 , 1 } ;
 Imprimir [ var1 ] ; 
-Imprimir [ var1 + var2 ] ; 
-Imprimir [ var1 - var2 ] ; 
-Imprimir [ var1 * var2 ] ;
-Imprimir [ i * j ] ;
-Imprimir [ j * k ] ;
-Imprimir [ k * i ] ;
-Imprimir [ var3 [ 3 ] = { 5 , 1 , 2 } ] ;
+Imprimir [ * var1 var2 ] ; 
+Imprimir [ + var1 var2 ] ; 
+Imprimir [ - var1 var2 ] ; 
+Imprimir [ . var1 var2 ] ; 
+
+Imprimir [ * i j ] ;
+Imprimir [ * j k ] ;
+Imprimir [ * k i ] ;
 
 //CICLOS
-if ( var1 == var2 ) { Imprimir [ var1 ] ; } 
-if ( ! ( var1 == var2 ) ) { Imprimir [ var1 ] ; Imprimir [ var2 ] ; } else { Imprimir [ var1 ] ; } 
-if ( var1 != var2 ) { Imprimir [ var1 ] ; Imprimir [ var2 ] ; } else { Imprimir [ var1 ] ; } 
-while ( var1 == var2 ) { Imprimir [ var1 ] ; var2 = Invertir [ var1 ] ; } Imprimir [ var1 ] ; Imprimir [ var2 ] ;
+if ( == var1 var2 ) { Imprimir [ var1 ] ; } 
+if ( ! ( == var1 var2 ) ) { Imprimir [ var1 ] ; Imprimir [ var2 ] ; } else { Imprimir [ var1 ] ; } 
+if ( != var1 var2 ) { Imprimir [ var1 ] ; Imprimir [ var2 ] ; } else { Imprimir [ var1 ] ; } 
+cont = 7 ;
+while ( >= cont 0 ) { Imprimir [ var1 ] ; var1 = + var1 var1 ; cont = - cont 1 ; } Imprimir [ var1 ] ; Imprimir [ var2 ] ;
 
 //CICLO FINITO
 var2 = var1 ; 
 Imprimir [ var1 ] ; 
-while ( ( Sumar [ var1 ] <= 20 ) ) { var1 = var1 + var2 ; Imprimir [ var1 ] ; } 
+while ( <= | var1 | 20 ) { var1 = + var1 var1 ; Imprimir [ var1 ] ; } 
 
 //COMPARACIONES
 if ( 4 < 5 ) { Imprimir [ var3 [ 3 ] = { 1 , 2 , 4 } ] ; } 
