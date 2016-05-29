@@ -1,6 +1,6 @@
 //OPERACIONES BÁSICAS
-( setf var1 [ 3 ] { 1 , 2 , 3 } ) ( setf var2 [ 3 ] { 4 , 5 , 6 } ) 
-( setf i [ 3 ] { 1 , 0 , 0 } ) ( setf j [ 3 ] { 0 , 1 , 0 } ) ( setf k [ 3 ] { 0 , 0 , 1 } )
+( setf var1 { 1 , 2 , 3 } ) ( setf var2 { 4 , 5 , 6 } ) 
+( setf i { 1 , 0 , 0 } ) ( setf j { 0 , 1 , 0 } ) ( setf k { 0 , 0 , 1 } )
 ( Imprimir [ var1 ] ) 
 ( Imprimir [ * var1 var2 ] ) 
 ( Imprimir [ + var1 var2 ] ) 
@@ -21,10 +21,10 @@
 while ( <= | var1 | 20 ) { ( setf var1 ( + var1 var1 ) ) ( Imprimir [ var1 ] ) } 
 
 //COMPARACIONES
-if ( < 4 5 ) { ( Imprimir [ ( setf var3 [ 3 ] { 1 , 2 , 4 } ) ] ) } 
-if ( > 5 4 ) { ( Imprimir [ ( setf var3 [ 3 ] { 1 , 2 , 3 } ] ) } 
-if ( <= 4 5 ) { ( Imprimir [ ( setf var3 [ 3 ] { 1 , 2 , 4 } ] ) } 
-if ( >= 5 4 ) { ( Imprimir [ ( setf var3 [ 3 ] { 1 , 2 , 3 } ] ) } 
+if ( < 4 5 ) { ( Imprimir [ ( setf var3 { 1 , 2 , 4 } ) ] ) } 
+if ( > 5 4 ) { ( Imprimir [ ( setf var3 { 1 , 2 , 3 } ] ) } 
+if ( <= 4 5 ) { ( Imprimir [ ( setf var3 { 1 , 2 , 4 } ] ) } 
+if ( >= 5 4 ) { ( Imprimir [ ( setf var3 { 1 , 2 , 3 } ] ) } 
 
 //IF-ELSE ANIDADO 
 ( setf var4 4 ) if ( > 5 4 ) { if ( > 2 3 ) { ( Imprimir [ 5 ] ) ( Imprimir [ 100 ] ) } else { ( Imprimir [ 4 ] ) ( Imprimir [ 200 ] ) } ( Imprimir [ 300 ] ) } ( Imprimir [ 400 ] ) 

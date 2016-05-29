@@ -61,7 +61,7 @@
               $$ = new ParserVal(maquina.agregarOperacion("constPush"));
               maquina.agregar($1.dval);
             }
-    | SETF VAR '[' initNum ']' '{' lista '}' {
+    | SETF VAR '{' lista '}' {
               vAux = new Vector(auxiliar);
               $$ = new ParserVal(maquina.agregarOperacion("constPush"));
               maquina.agregar(vAux);
@@ -261,16 +261,11 @@
             }
     ;
 
-  initNum: NUMBER {
-              i = 0; auxiliar = new double[(int)$1.dval];
-            }
-    ;
-
   lista: NUMBER {
-              auxiliar[i] = $1.dval; i++;
+              auxiliar = new double[0]; auxiliar = Operacion.insertar(auxiliar,$1.dval);
             }
     | lista ',' NUMBER {
-              auxiliar[i] = $3.dval; i++;
+              auxiliar = Operacion.insertar(auxiliar,$3.dval);
             }
     ;
 %%
