@@ -4,6 +4,7 @@
   import java.util.StringTokenizer;
 %}
 
+%token SETF
 %token IF
 %token ELSE
 %token WHILE
@@ -24,7 +25,7 @@
 %token PARAMETRO
 %token PROC
 
-%right '='
+%right SETF
 %left '+' '-'
 %right '*'
 %left '.'
@@ -46,9 +47,9 @@
     | list linea '\n'
     ;
 
-  linea: exp ';' {$$ = $1;}
+  linea: '(' exp ')'{$$ = $2;}
     |stmt  {$$ = $1;}
-    |linea exp ';' {$$ = $1;}
+    |linea '(' exp ')'{$$ = $1;}
     |linea stmt {$$ = $1;}
     ;
 
@@ -56,27 +57,27 @@
               $$ = new ParserVal(maquina.agregarOperacion("varPush_Eval"));
               maquina.agregar($1.sval);
             }
-    |NUMBER {
+    | NUMBER {
               $$ = new ParserVal(maquina.agregarOperacion("constPush"));
               maquina.agregar($1.dval);
             }
-    |VAR '[' initNum ']' '=' '{' lista '}' {
+    | SETF VAR '[' initNum ']' '{' lista '}' {
               vAux = new Vector(auxiliar);
               $$ = new ParserVal(maquina.agregarOperacion("constPush"));
               maquina.agregar(vAux);
               maquina.agregarOperacion("varPush");
-              maquina.agregar($1.sval);
+              maquina.agregar($2.sval);
               maquina.agregarOperacion("asignar");
               maquina.agregarOperacion("varPush_Eval");
-              maquina.agregar($1.sval);
+              maquina.agregar($2.sval);
             }
-    | VAR '=' exp {
+    | SETF VAR exp {
               $$ = new ParserVal($3.ival);
               maquina.agregarOperacion("varPush");
-              maquina.agregar($1.sval);
+              maquina.agregar($2.sval);
               maquina.agregarOperacion("asignar");
               maquina.agregarOperacion("varPush_Eval");
-              maquina.agregar($1.sval);
+              maquina.agregar($2.sval);
             }
     | '*' exp exp {
               $$ = new ParserVal($2.ival);
@@ -133,7 +134,7 @@
               maquina.agregarOperacion("negar");
               $$ = $2;
             }
-	| '|' exp '|' {
+    | '|' exp '|' {
               maquina.agregarOperacion("norma");
               $$ = $2;
             }
@@ -348,6 +349,9 @@
         }
         if(s.equals("||")){
           return OR;
+        }
+        if(s.equals("setf")){
+          return SETF;
         }
         if(s.equals("if")){
           return IF;
